@@ -1,0 +1,18 @@
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "nav nav nav nav nav nav"
+    "menutool main main main main main";
+}
+
+.grid-nav {
+  grid-area: nav;
+}
+
+.grid-menutool {
+  grid-area: menutool;
+}
+
+.grid-student {
+  grid-area: main;
+}
