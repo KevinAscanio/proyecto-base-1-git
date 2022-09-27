@@ -1,0 +1,8 @@
+<h2 class="display-5">Estudiantes de la clase:</h2>
+<ol>
+  <li *ngFor="let estudiante of listaEstudiantes">
+    <p [ngClass]="variable1 < 5 ? 'texto-mobiles' : 'texto-pc'">
+      {{ estudiante | titlecase }}
+    </p>
+  </li>
+</ol>
