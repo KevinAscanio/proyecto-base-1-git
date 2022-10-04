@@ -1,0 +1,82 @@
+<h2>FORMULARIO REACTIVO</h2>
+
+<form [formGroup]="formularioEstudiante" (ngSubmit)="agregarEstudiante()">
+  <div>
+    <label for="">Nombre:</label>
+    <input type="text" formControlName="nombre" />
+    <p
+      *ngIf="formularioEstudiante.get('nombre')?.touched && formularioEstudiante.get('nombre')?.errors?.['required']"
+      class="error-formulario"
+    >
+      Completar tu nombre es obligatorio*
+    </p>
+  </div>
+
+  <div>
+    <label for="">Correo:</label>
+    <input type="email" formControlName="correo" />
+    <p
+      *ngIf="formularioEstudiante.get('correo')?.touched && formularioEstudiante.get('correo')?.errors?.['required']"
+      class="error-formulario"
+    >
+      Indicar una direccion de correo es obligatorio*
+    </p>
+    <p
+      *ngIf="formularioEstudiante.get('correo')?.touched && formularioEstudiante.get('correo')?.errors?.['pattern']"
+      class="error-formulario"
+    >
+      Debes indicar una direccion de correo valida*
+    </p>
+  </div>
+
+  <div>
+    <label for="">Contraseña:</label>
+    <input type="text" formControlName="contrasena" />
+    <p
+      *ngIf="formularioEstudiante.get('contrasena')?.touched && formularioEstudiante.get('contrasena')?.errors?.['required']"
+      class="error-formulario"
+    >
+      Debes crear una contraseña
+    </p>
+    <p
+      *ngIf="formularioEstudiante.get('contrasena')?.touched && formularioEstudiante.get('contrasena')?.errors?.['minlength'] "
+      class="error-formulario"
+    >
+      Tu contraseña debe tener al menos 6 caracteres*
+    </p>
+
+    <p
+      *ngIf="formularioEstudiante.get('contrasena')?.touched && formularioEstudiante.get('contrasena')?.errors?.['pattern'] "
+      class="error-formulario"
+    >
+      Tu contraseña debe tener al menos una mayuscula*
+    </p>
+  </div>
+
+  <div>
+    <label for="">Confirmar Contraseña:</label>
+    <input type="text" formControlName="contrasenaConfirm" />
+
+    <p
+      class="error-formulario"
+      *ngIf="
+        formularioEstudiante.get('contrasenaConfirm')?.touched &&
+        !contrasenasIguales
+      "
+    >
+      Las contraseñas deben coincidir*
+    </p>
+  </div>
+
+  <div>
+    <label for="">Selecciona un tipo de Usuario:</label>
+    <select formControlName="administrador">
+      <option value="Estudiante">Estudiante</option>
+      <option value=" Administrador">Administrador</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="formularioEstudiante.invalid">
+    Agregar Estudiante
+  </button>
+</form>
