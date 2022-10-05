@@ -1,8 +1,8 @@
 <h2>FORMULARIO REACTIVO</h2>
 
 <form [formGroup]="formularioEstudiante" (ngSubmit)="agregarEstudiante()">
-  <div>
-    <label for="">Nombre:</label>
+  <div class="diseno-formulario">
+    <label class="diseno-label" for="">Nombre:</label>
     <input type="text" formControlName="nombre" />
     <p
       *ngIf="formularioEstudiante.get('nombre')?.touched && formularioEstudiante.get('nombre')?.errors?.['required']"
@@ -12,8 +12,8 @@
     </p>
   </div>
 
-  <div>
-    <label for="">Correo:</label>
+  <div class="diseno-formulario">
+    <label class="diseno-label" for="">Correo:</label>
     <input type="email" formControlName="correo" />
     <p
       *ngIf="formularioEstudiante.get('correo')?.touched && formularioEstudiante.get('correo')?.errors?.['required']"
@@ -29,9 +29,9 @@
     </p>
   </div>
 
-  <div>
-    <label for="">Contraseña:</label>
-    <input type="text" formControlName="contrasena" />
+  <div class="diseno-formulario">
+    <label class="diseno-label" for="">Contraseña:</label>
+    <input type="password" formControlName="contrasena" />
     <p
       *ngIf="formularioEstudiante.get('contrasena')?.touched && formularioEstudiante.get('contrasena')?.errors?.['required']"
       class="error-formulario"
@@ -53,22 +53,22 @@
     </p>
   </div>
 
-  <div>
-    <label for="">Confirmar Contraseña:</label>
-    <input type="text" formControlName="contrasenaConfirm" />
+  <div class="diseno-formulario">
+    <label class="diseno-label" for="">Confirmar Contraseña:</label>
+    <input type="password" formControlName="contrasenaConfirm" />
 
     <p
       class="error-formulario"
       *ngIf="
         formularioEstudiante.get('contrasenaConfirm')?.touched &&
-        !contrasenasIguales
+        formularioEstudiante.errors?.['passwordsDontMatch']
       "
     >
       Las contraseñas deben coincidir*
     </p>
   </div>
 
-  <div>
+  <div class="diseno-formulario">
     <label for="">Selecciona un tipo de Usuario:</label>
     <select formControlName="administrador">
       <option value="Estudiante">Estudiante</option>
@@ -76,7 +76,11 @@
     </select>
   </div>
 
-  <button type="submit" [disabled]="formularioEstudiante.invalid">
+  <button
+    class="diseno-formulario"
+    type="submit"
+    [disabled]="formularioEstudiante.invalid"
+  >
     Agregar Estudiante
   </button>
 </form>

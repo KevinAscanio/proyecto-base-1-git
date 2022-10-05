@@ -2,3 +2,12 @@
   color: rgb(238, 39, 39);
   font-weight: 600;
 }
+
+.diseno-formulario {
+  margin: 5px 5px;
+  padding: 5px 5px;
+}
+
+.diseno-label {
+  display: block;
+}
