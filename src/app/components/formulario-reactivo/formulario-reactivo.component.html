@@ -1,4 +1,4 @@
-<h2>FORMULARIO REACTIVO</h2>
+<h2 appEstiloCabeceras>Crear Usuario</h2>
 
 <form [formGroup]="formularioEstudiante" (ngSubmit)="agregarEstudiante()">
   <div class="diseno-formulario">
@@ -81,6 +81,6 @@
     type="submit"
     [disabled]="formularioEstudiante.invalid"
   >
-    Agregar Estudiante
+    Agregar Usuario
   </button>
 </form>

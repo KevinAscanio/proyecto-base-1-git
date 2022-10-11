@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Crear persona</h1>
+<div mat-dialog-content>
+  <form [formGroup]="formEstudiante">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        formControlName="nombre"
+        placeholder="Ingrese un nombre"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input
+        matInput
+        formControlName="apellido"
+        placeholder="Ingrese un nombre"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Edad</mat-label>
+      <input
+        matInput
+        formControlName="edad"
+        placeholder="Ingrese una edad valida"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="cancela()">Cancelar</button>
+  <button mat-button (click)="guardar()" [disabled]="formEstudiante.invalid">
+    Guardar
+  </button>
+</div>

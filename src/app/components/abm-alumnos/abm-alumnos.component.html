@@ -1,0 +1,29 @@
+<h2 appEstiloCabeceras>Base de Datos Alumnado</h2>
+
+<mat-table [dataSource]="ELEMENT_DATA">
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+    <mat-cell *matCellDef="let alumno"> {{ alumno.nombre }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="apellido">
+    <mat-header-cell *matHeaderCellDef>Apellido</mat-header-cell>
+    <mat-cell *matCellDef="let alumno"> {{ alumno.apellido }} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="edad">
+    <mat-header-cell *matHeaderCellDef>Edad</mat-header-cell>
+    <mat-cell *matCellDef="let alumno"> {{ alumno.edad }} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="acciones">
+    <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
+    <mat-cell *matCellDef="let alumno">
+      <mat-icon class="pointer" (click)="borrar(alumno.id)">delete</mat-icon>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+</mat-table>
+
+<div>
+  <button mat-raised-button (click)="openDialog()">Agregar Alumno</button>
+</div>
