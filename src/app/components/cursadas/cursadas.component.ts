@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from 'src/app/models/curso';
+import { CursosService } from '../../services/cursos.service';
 
 @Component({
   selector: 'app-cursadas',
@@ -8,63 +9,7 @@ import { Curso } from 'src/app/models/curso';
   styleUrls: ['./cursadas.component.css'],
 })
 export class CursadasComponent implements OnInit {
-  cursos: Curso[] = [
-    {
-      nombre: 'Transpondedor',
-      comision: '50223',
-      profesor: 'Chandler',
-      apellidoProfesor: 'Bing',
-      fechaComienzo: new Date(2022, 0, 2),
-      fechaFin: new Date(2022, 2, 29),
-      inscripcionAbierta: true,
-      imagen:
-        'https://res.cloudinary.com/hdsqazxtw/image/upload/v1600707758/coderhouse-logo.png',
-    },
-    {
-      nombre: 'Paleontologia',
-      comision: '40213',
-      profesor: 'Ross',
-      apellidoProfesor: 'Geller',
-      fechaComienzo: new Date(2022, 0, 2),
-      fechaFin: new Date(2022, 2, 29),
-      inscripcionAbierta: false,
-      imagen:
-        'https://res.cloudinary.com/hdsqazxtw/image/upload/v1600707758/coderhouse-logo.png',
-    },
-    {
-      nombre: 'Diseño y Moda',
-      comision: '30333',
-      profesor: 'Rachel',
-      apellidoProfesor: 'Green',
-      fechaComienzo: new Date(2022, 0, 2),
-      fechaFin: new Date(2022, 2, 29),
-      inscripcionAbierta: true,
-      imagen:
-        'https://res.cloudinary.com/hdsqazxtw/image/upload/v1600707758/coderhouse-logo.png',
-    },
-    {
-      nombre: 'Masoterapia',
-      comision: '20510',
-      profesor: 'Phoebe',
-      apellidoProfesor: 'Buffay',
-      fechaComienzo: new Date(2022, 0, 2),
-      fechaFin: new Date(2022, 2, 29),
-      inscripcionAbierta: false,
-      imagen:
-        'https://res.cloudinary.com/hdsqazxtw/image/upload/v1600707758/coderhouse-logo.png',
-    },
-    {
-      nombre: 'Actuación',
-      comision: '15021',
-      profesor: 'Joey',
-      apellidoProfesor: 'Tribiany',
-      fechaComienzo: new Date(2022, 0, 2),
-      fechaFin: new Date(2022, 2, 29),
-      inscripcionAbierta: true,
-      imagen:
-        'https://res.cloudinary.com/hdsqazxtw/image/upload/v1600707758/coderhouse-logo.png',
-    },
-  ];
+  cursos!: Curso[];
 
   columnas: string[] = [
     'nombre',
@@ -79,9 +24,11 @@ export class CursadasComponent implements OnInit {
     this.cursos
   );
 
-  constructor() {}
+  constructor(private CursosService: CursosService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cursos = this.CursosService.obtenercurso();
+  }
 
   filtrarCursos(event: Event) {
     const valorObtenido = (event.target as HTMLInputElement).value;

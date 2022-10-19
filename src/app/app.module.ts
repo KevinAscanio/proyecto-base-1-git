@@ -17,6 +17,7 @@ import { BooleanoEstiloDirective } from './directives/booleano-estilo.directive'
 import { AbmAlumnosComponent } from './components/abm-alumnos/abm-alumnos.component';
 import { CrearEstudianteDialogComponent } from './components/abm-alumnos/crear-estudiante-dialog/crear-estudiante-dialog.component';
 import { ApellidosProfesorPipe } from './pipes/apellidos-profesor.pipe';
+import { CursadasOptativasComponent } from './components/cursadas-optativas/cursadas-optativas.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ApellidosProfesorPipe } from './pipes/apellidos-profesor.pipe';
     AbmAlumnosComponent,
     CrearEstudianteDialogComponent,
     ApellidosProfesorPipe,
+    CursadasOptativasComponent,
   ],
   imports: [
     BrowserModule,

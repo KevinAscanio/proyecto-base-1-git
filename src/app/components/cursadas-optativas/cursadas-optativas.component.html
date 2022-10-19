@@ -1,0 +1,11 @@
+<h2 appEstiloCabeceras>Cursos Optativos</h2>
+
+<button (click)="agregarCurso()">Agregar Curso optativo</button>
+
+<div>
+  <pre> Curso Con Observable: {{ cursos$ | async | json }} </pre>
+
+  <p>Cursos Filtrados con Map: {{ map$ | async | json }}</p>
+
+  <pre> Cursos por promise {{ promise | async | json }}</pre>
+</div>
