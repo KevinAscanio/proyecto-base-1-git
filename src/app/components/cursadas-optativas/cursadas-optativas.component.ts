@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe } from '@angular/core';
+import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
 import { from, map, Observable, of } from 'rxjs';
 import { Curso } from 'src/app/models/curso';
 import { CursosService } from '../../services/cursos.service';
@@ -8,7 +8,7 @@ import { CursosService } from '../../services/cursos.service';
   templateUrl: './cursadas-optativas.component.html',
   styleUrls: ['./cursadas-optativas.component.css'],
 })
-export class CursadasOptativasComponent implements OnInit {
+export class CursadasOptativasComponent implements OnInit, OnDestroy {
   cursos!: Curso[];
   cursos$!: Observable<Curso[]>;
   suscripcion: any;
