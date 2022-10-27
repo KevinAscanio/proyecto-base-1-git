@@ -1,0 +1,12 @@
+.fondo-cursadas {
+  background: linear-gradient(88deg, #2d5a88 0%, #6484fc 100%);
+}
+
+body {
+  background: linear-gradient(88deg, #2e6092 0%, #6484fc 100%);
+  color: white;
+}
+
+mat-label {
+  color: white;
+}

@@ -1,0 +1,24 @@
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "nav nav nav nav nav nav"
+    "main main main main main main";
+}
+
+.grid-nav {
+  grid-area: nav;
+}
+
+.grid-menutool {
+  grid-area: menutool;
+}
+
+.grid-student {
+  grid-area: main;
+}
+
+.father-body {
+  background: linear-gradient(88deg, #285179 0%, #6484fc 100%);
+
+  color: rgb(255, 255, 255);
+}

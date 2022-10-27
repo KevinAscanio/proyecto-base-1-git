@@ -1,0 +1,4 @@
+.grid-container {
+  display: grid;
+  grid-template-areas: "nav nav nav nav nav nav";
+}

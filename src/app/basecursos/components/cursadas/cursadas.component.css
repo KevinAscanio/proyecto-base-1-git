@@ -1,0 +1,18 @@
+.fondo-cursadas {
+  background: linear-gradient(88deg, #2d5a88 0%, #6484fc 100%);
+}
+
+mat-label,
+th,
+td,
+h2 {
+  color: rgb(255, 255, 255);
+}
+
+.color-fuente {
+  color: rgb(255, 255, 255);
+}
+
+.separacion-seccion {
+  padding: 10px;
+}

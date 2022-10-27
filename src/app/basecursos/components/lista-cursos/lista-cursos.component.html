@@ -1,0 +1,37 @@
+<body>
+  <div class="fondo-cursadas">
+    <h2 appEstiloCabeceras>Lista de cursos</h2>
+
+    <div class="row">
+      <div *ngFor="let curso of cursos$ | async" class="col-md-3">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{ curso.nombre }}</mat-card-title>
+            <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <img mat-card-image [src]="curso.imagen" alt="coderhouse" />
+
+          <mat-card-content>
+            <p>Impartido por {{ curso.profesor }}</p>
+            <p>Inicial el {{ curso.fechaComienzo | date: "dd/MM/YYYY" }}</p>
+            <p>Finaliza el {{ curso.fechaFin | date: "dd/MM/YYYY" }}</p>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <button mat-icon-button color="primary">
+              <mat-icon (click)="editarCurso(curso)">edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="eliminarCurso(curso.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</body>

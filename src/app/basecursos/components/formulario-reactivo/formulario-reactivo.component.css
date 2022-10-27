@@ -1,0 +1,30 @@
+.error-formulario {
+  color: rgb(238, 39, 39);
+  font-weight: 600;
+}
+
+.diseno-formulario {
+  padding: 5px 5px;
+  background: linear-gradient(88deg, #2d5a88 0%, #6484fc 100%);
+}
+
+.boton {
+  display: inline-block;
+  background-color: linear-gradient(88deg, #2d5a88 0%, #6484fc 100%);
+}
+
+.diseno-label {
+  display: block;
+}
+
+.fondo-cursadas {
+  background: linear-gradient(88deg, #2d5a88 0%, #6484fc 100%);
+}
+
+mat-label,
+th,
+td,
+h2,
+label {
+  color: rgb(255, 255, 255);
+}
