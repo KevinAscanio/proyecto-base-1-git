@@ -39,7 +39,7 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
     BasecursosRoutingModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    BasecursosModule,
+
     SharedModule,
   ],
   providers: [],

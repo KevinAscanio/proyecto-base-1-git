@@ -87,9 +87,7 @@ export class CursadasComponent implements OnInit {
 
   constructor(private CursosService: CursosService) {}
 
-  ngOnInit(): void {
-    this.cursos = this.CursosService.obtenercurso();
-  }
+  ngOnInit(): void {}
 
   filtrarCursos(event: Event) {
     const valorObtenido = (event.target as HTMLInputElement).value;

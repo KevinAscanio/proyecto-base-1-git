@@ -6,3 +6,11 @@ body {
 mat-label {
   color: white;
 }
+
+div {
+  margin: 5px 5px;
+}
+
+.botton {
+  margin: 10px 10px;
+}

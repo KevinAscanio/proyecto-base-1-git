@@ -11,7 +11,7 @@ import { CursosService } from '../../services/cursos.service';
 })
 export class EditarCursoComponent implements OnInit {
   formulario!: FormGroup;
-  id!: number;
+  curso!: Curso;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,34 +22,41 @@ export class EditarCursoComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((parametros) => {
       console.log(parametros);
-      this.id = parseInt(parametros.get('id') || '0');
-      this.formulario = new FormGroup({
-        nombre: new FormControl(parametros.get('nombre'), [
-          Validators.required,
-        ]),
-        comision: new FormControl(parametros.get('comision')),
-        profesor: new FormControl(parametros.get('profesor')),
-        apellidoProfe: new FormControl(parametros.get('apellidoProfesor')),
-        inicio: new FormControl(parametros.get('fechaComienzo')),
-        fin: new FormControl(parametros.get('fechaFin')),
-        inscripcionAbierta: new FormControl(
-          parametros.get('inscripcionAbierta')
-        ),
-      });
+      this.curso = {
+        id: parseInt(parametros.get('id') || '0'),
+        nombre: parametros.get('nombre') || '',
+        comision: parametros.get('comision') || '',
+        profesor: parametros.get('profesor') || '',
+        apellidoProfesor: parametros.get('apellidoProfesor') || '',
+        fechaComienzo: new Date(parametros.get('fechaComienzo') || ''),
+        fechaFin: new Date(parametros.get('fechaFin') || ''),
+        inscripcionAbierta: parametros.get('inscripcionAbierta') === 'true',
+        imagen: parametros.get('imagen') || '',
+      };
+    });
+
+    this.formulario = new FormGroup({
+      nombre: new FormControl(this.curso.nombre, [Validators.required]),
+      comision: new FormControl(this.curso.comision),
+      profesor: new FormControl(this.curso.profesor),
+      apellidoProfesor: new FormControl(this.curso.apellidoProfesor),
+      fechaComienzo: new FormControl(this.curso.fechaComienzo),
+      fechaFin: new FormControl(this.curso.fechaFin),
+      inscripcionAbierta: new FormControl(this.curso.inscripcionAbierta),
     });
   }
 
   editarCurso() {
     let c: Curso = {
-      id: this.id,
+      id: this.curso.id,
       nombre: this.formulario.value.nombre,
       comision: this.formulario.value.comision,
       profesor: this.formulario.value.profesor,
-      apellidoProfesor: this.formulario.value.apellido,
-      fechaComienzo: this.formulario.value.fechaInicio,
+      apellidoProfesor: this.formulario.value.apellidoProfesor,
+      fechaComienzo: this.formulario.value.fechaComienzo,
       fechaFin: this.formulario.value.fechaFin,
       inscripcionAbierta: this.formulario.value.inscripcionAbierta,
-      imagen: '',
+      imagen: this.curso.imagen,
     };
 
     this.cursoService.editarCursoR(c);

@@ -19,6 +19,7 @@ export class ListaCursosComponent implements OnInit {
   }
   eliminarCurso(id: number) {
     this.CursosService.eliminarCursoR(id);
+    this.cursos$ = this.CursosService.obtenerCursos();
   }
 
   editarCurso(curso: Curso) {

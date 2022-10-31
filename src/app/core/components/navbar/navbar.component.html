@@ -16,16 +16,12 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="login">Login</a>
+          <a class="nav-link" routerLink="autenticacion/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="cursos/cursadas">Cursadas</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="cursos/cursadasOptativas"
-            >Cursadas Optativas</a
-          >
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" routerLink="abm">Inscripciones estudiantes</a>
         </li>
@@ -39,6 +35,17 @@
             >Creacion Cursadas</a
           >
         </li>
+
+        <ng-container class="nav-item" *ngIf="sesion$ | async as sesion">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a>
+                Usuario:
+                {{ sesion.usuarioActivo?.usuario }}</a
+              >
+            </li>
+          </ul>
+        </ng-container>
       </ul>
     </div>
   </div>

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { BasecursosRoutingModule } from './basecursos-routing.module';
 import { CursadasComponent } from './components/cursadas/cursadas.component';
-import { CursadasOptativasComponent } from './components/cursadas-optativas/cursadas-optativas.component';
 import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
 import { AgregarCursosComponent } from './components/agregar-cursos/agregar-cursos.component';
 import { MaterialModule } from '../material.module';
@@ -15,11 +14,12 @@ import { EstiloCabecerasDirective } from './directives/estilo-cabeceras.directiv
 import { BooleanoEstiloDirective } from './directives/booleano-estilo.directive';
 import { ApellidosProfesorPipe } from './pipes/apellidos-profesor.pipe';
 import { EditarCursoComponent } from './components/editar-curso/editar-curso.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     CursadasComponent,
-    CursadasOptativasComponent,
+
     ListaCursosComponent,
     AgregarCursosComponent,
     FormularioReactivoComponent,
@@ -34,6 +34,7 @@ import { EditarCursoComponent } from './components/editar-curso/editar-curso.com
     BasecursosRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [CursosService],
 })

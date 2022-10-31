@@ -5,10 +5,33 @@ import { AppComponent } from './app.component';
 import { PaginaNoEncontradaComponent } from './core/components/pagina-no-encontrada/pagina-no-encontrada.component';
 import { InicioComponent } from './core/components/inicio/inicio.component';
 import { AbmAlumnosComponent } from './components/abm-alumnos/abm-alumnos.component';
+import { BasecursosModule } from './basecursos/basecursos.module';
+import { AutenticacionGuard } from './core/guards/autenticacion.guard';
 
 const rutas: Routes = [
-  { path: 'inicio', component: InicioComponent },
-  { path: 'abm', component: AbmAlumnosComponent },
+  {
+    path: 'inicio',
+    component: InicioComponent,
+    canActivate: [AutenticacionGuard],
+  },
+  {
+    path: 'cursos',
+    loadChildren: () =>
+      import('./basecursos/basecursos.module').then((m) => m.BasecursosModule),
+    canActivate: [AutenticacionGuard],
+  },
+  {
+    path: 'autenticacion',
+    loadChildren: () =>
+      import('./autenticacion/autenticacion.module').then(
+        (m) => m.AutenticacionModule
+      ),
+  },
+  {
+    path: 'abm',
+    component: AbmAlumnosComponent,
+    canActivate: [AutenticacionGuard],
+  },
 
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: '**', component: PaginaNoEncontradaComponent },

@@ -1,13 +1,26 @@
 <body class="father-body">
   <h2 appEstiloCabeceras class="display-3">Sesion de Logeo</h2>
 
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla
-    modi, necessitatibus nostrum fugit doloremque laboriosam enim esse, quidem
-    dolorem aut nam quae similique, facilis molestias. Rem fugit sapiente nulla.
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure possimus
-    repellat cum. Eveniet est odio deleniti accusantium earum iste sapiente
-    veritatis molestiae beatae recusandae, ducimus ipsa temporibus quo totam
-    facilis!
-  </p>
+  <form [formGroup]="formulario" (ngSubmit)="login()">
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="fill" class="fill">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="usuario" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="fill" class="fill">
+          <mat-label>Contrasena</mat-label>
+          <input matInput formControlName="contrasena" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-slide-toggle formControlName="admin">Es admin</mat-slide-toggle>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" mat-raised-button color="primary">Entrar</button>
+      </div>
+    </div>
+  </form>
 </body>
