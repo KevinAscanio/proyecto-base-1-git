@@ -60,6 +60,10 @@ export class CursosService {
     alert('Registro eliminado.');
   }
 
+  obtenerCursoTest() {
+    return this.http.get('https://635f44173e8f65f283af7124.mockapi.io/cursos');
+  }
+
   private manejarError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.warn('Error del lado del Usuario', error.error.message);

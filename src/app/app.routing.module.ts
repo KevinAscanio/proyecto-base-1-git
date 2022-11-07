@@ -7,6 +7,7 @@ import { InicioComponent } from './core/components/inicio/inicio.component';
 import { AbmAlumnosComponent } from './components/abm-alumnos/abm-alumnos.component';
 import { BasecursosModule } from './basecursos/basecursos.module';
 import { AutenticacionGuard } from './core/guards/autenticacion.guard';
+import { AdministradorGuard } from './core/guards/administrador.guard';
 
 const rutas: Routes = [
   {
@@ -30,7 +31,7 @@ const rutas: Routes = [
   {
     path: 'abm',
     component: AbmAlumnosComponent,
-    canActivate: [AutenticacionGuard],
+    canActivate: [AutenticacionGuard, AdministradorGuard],
   },
 
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },

@@ -3,3 +3,9 @@
 
   color: rgb(255, 255, 255);
 }
+
+.center-text {
+  text-align: center;
+  padding: 10px 10px;
+  font-size: 30px;
+}

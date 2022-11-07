@@ -8,16 +8,23 @@ describe('FormularioReactivoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormularioReactivoComponent ]
-    })
-    .compileComponents();
+      declarations: [FormularioReactivoComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FormularioReactivoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Se crea componente', () => {
     expect(component).toBeTruthy();
+  });
+  it('El formulario se mantiene invalido cuando ingreso unicamente el nombre del curso', () => {
+    const formulario = component.formularioEstudiante;
+    const nombre = formulario.controls['nombre'];
+
+    nombre.setValue('Kevin');
+
+    expect(formulario.valid).toBeFalse();
   });
 });
