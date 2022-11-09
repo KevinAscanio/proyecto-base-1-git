@@ -6,7 +6,7 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 export class BooleanoEstiloDirective implements OnInit {
   @Input('appBooleanoEstilo') inscripcionAbierta!: boolean;
 
-  constructor(private elemento: ElementRef, private renderer: Renderer2) {}
+  constructor(public elemento: ElementRef, public renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.renderer.setStyle(this.elemento.nativeElement, 'padding', '0px 15px');
