@@ -16,10 +16,12 @@ import { ApellidosProfesorPipe } from './pipes/apellidos-profesor.pipe';
 import { EditarCursoComponent } from './components/editar-curso/editar-curso.component';
 import { SharedModule } from '../shared/shared.module';
 
+import { StoreModule } from '@ngrx/store';
+import { cursosFeatureKey, reducer } from './state/cursos.reducer';
+
 @NgModule({
   declarations: [
     CursadasComponent,
-
     ListaCursosComponent,
     AgregarCursosComponent,
     FormularioReactivoComponent,
@@ -36,6 +38,8 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     SharedModule,
     FormsModule,
+
+    StoreModule.forFeature(cursosFeatureKey, reducer),
   ],
   providers: [CursosService],
 })

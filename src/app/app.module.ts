@@ -24,6 +24,10 @@ import { BasecursosRoutingModule } from './basecursos/basecursos-routing.module'
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,14 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
     AppRoutingModule,
 
     SharedModule,
+
+    StoreModule.forRoot({}, {}),
+
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],

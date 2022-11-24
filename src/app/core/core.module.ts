@@ -7,6 +7,8 @@ import { SesionService } from './services/sesion.service';
 import { StudentComponent } from './components/student/student.component';
 import { DirectivasEstudiantesComponent } from './directivas-estudiantes/directivas-estudiantes.component';
 import { MaterialModule } from '../material.module';
+import { StoreModule } from '@ngrx/store';
+import { reducer, sesionFeatureKey } from './state/sesion.reducer';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,11 @@ import { MaterialModule } from '../material.module';
     DirectivasEstudiantesComponent,
     StudentComponent,
   ],
-  imports: [CommonModule, MaterialModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    StoreModule.forFeature(sesionFeatureKey, reducer),
+  ],
   providers: [SesionService],
 })
 export class CoreModule {}

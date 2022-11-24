@@ -29,6 +29,14 @@ const rutas: Routes = [
       ),
   },
   {
+    path: 'inscripciones',
+    loadChildren: () =>
+      import('./inscripciones/inscripciones.module').then(
+        (m) => m.InscripcionesModule
+      ),
+    canActivate: [AutenticacionGuard],
+  },
+  {
     path: 'abm',
     component: AbmAlumnosComponent,
     canActivate: [AutenticacionGuard, AdministradorGuard],

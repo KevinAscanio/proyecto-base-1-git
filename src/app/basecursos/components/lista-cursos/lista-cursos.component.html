@@ -2,6 +2,7 @@
   <div class="fondo-cursadas">
     <h2 appEstiloCabeceras>Lista de cursos</h2>
 
+    <div class="row" *ngIf="cargando$ | async"></div>
     <div class="row">
       <div *ngFor="let curso of cursos$ | async" class="col-md-3">
         <mat-card>
