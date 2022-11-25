@@ -11,9 +11,11 @@ import {
   UrlSegment,
   UrlTree,
 } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
 import { Sesion } from 'src/app/models/sesion';
 import { SesionService } from '../services/sesion.service';
+import { selectSesionActiva } from '../state/sesion.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +23,11 @@ import { SesionService } from '../services/sesion.service';
 export class AutenticacionGuard
   implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad
 {
-  constructor(private sesion: SesionService, private router: Router) {}
+  constructor(
+    private sesion: SesionService,
+    private router: Router,
+    private store: Store<Sesion>
+  ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -30,7 +36,7 @@ export class AutenticacionGuard
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.sesion.obtenerSesion().pipe(
+    return this.store.select(selectSesionActiva).pipe(
       map((sesion: Sesion) => {
         if (sesion.sesionActiva) {
           return true;

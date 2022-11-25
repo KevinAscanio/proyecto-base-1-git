@@ -37,7 +37,7 @@ export class AgregarCursosComponent implements OnInit {
       imagen:
         'https://res.cloudinary.com/hdsqazxtw/image/upload/v1600707758/coderhouse-logo.png',
     };
-    console.log(curso);
+
     this.cursoService.agregarCursoR(curso);
     this.router.navigate(['cursos/listaCursadas']); // localhost/cursos/listar
   }

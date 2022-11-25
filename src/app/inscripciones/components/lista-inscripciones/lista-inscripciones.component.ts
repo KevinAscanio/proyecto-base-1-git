@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { selectStateCursos } from 'src/app/basecursos/state/cursos.selectors';
 import { selectSesionActiva } from 'src/app/core/state/sesion.selectors';
 import { Curso } from 'src/app/models/curso';
-import { CursoState } from 'src/app/models/curso.state';
+import { CursoState } from '../../../models/curso.state';
 import { Inscripcion } from 'src/app/models/inscripcion';
 import { Sesion } from 'src/app/models/sesion';
 import { Usuario } from 'src/app/models/usuario';

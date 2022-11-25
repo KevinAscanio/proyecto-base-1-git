@@ -35,7 +35,6 @@ export class AbmAlumnosComponent implements OnInit {
     dialog.afterClosed().subscribe((res) => {
       if (res == undefined) {
       } else {
-        console.log(res);
         this.dataInicial.push({
           ...res,
           id: this.dataInicial.length + 1,

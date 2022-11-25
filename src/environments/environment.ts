@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   api: 'https://635f44173e8f65f283af7124.mockapi.io',
+  apicur: 'https://635f44173e8f65f283af7124.mockapi.io/cursos',
 };
 
 /*

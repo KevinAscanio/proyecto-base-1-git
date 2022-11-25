@@ -55,7 +55,6 @@ export class FormularioReactivoComponent implements OnInit {
   ngOnInit(): void {}
 
   agregarEstudiante() {
-    console.log(this.formularioEstudiante);
     const contrasena1 = this.formularioEstudiante.value.contrasena;
     const contrasena2 = this.formularioEstudiante.value.contrasenaConfirm;
   }
